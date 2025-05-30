@@ -25,13 +25,6 @@
 
 ---
 
-## 📸 Screenshots
-
-> 
-![Screenshot 2025-04-14 233319](https://github.com/user-attachments/assets/aad6f30e-39f9-49cb-981f-6d171a96fac4)
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
