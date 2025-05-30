@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Subjects</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Subject Records</h2>
+        <a href="/admin/subjects/add" class="btn">Add Subject</a>
+        <table border="1" width="100%" style="margin-top:20px;">
+            <tr>
+                <th>ID</th>
+                <th>Subject Name</th>
+                <th>Credits</th>
+                <th>Teacher Name</th>
+                <th>Actions</th>
+            </tr>
+            {% for subject in subjects %}
+            <tr>
+                <td>{{ subject.subject_id }}</td>
+                <td>{{ subject.subject_name }}</td>
+                <td>{{ subject.credits }}</td>
+                <td>{{ subject.teacher_name }}</td>
+                <td>
+                    <a href="/admin/subjects/edit/{{ subject.subject_id }}" class="btn">Edit</a>
+                    <form action="/admin/subjects/delete/{{ subject.subject_id }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/admin/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html> 

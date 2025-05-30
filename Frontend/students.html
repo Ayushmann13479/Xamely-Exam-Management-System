@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Students</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Student Records</h2>
+        <a href="/admin/students/add" class="btn">Add Student</a>
+        <table border="1" width="100%" style="margin-top:20px;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Roll Number</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.user_id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.roll_number }}</td>
+                <td>{{ student.phone_number }}</td>
+                <td>
+                    <a href="/admin/students/edit/{{ student.user_id }}" class="btn">Edit</a>
+                    <form action="/admin/students/delete/{{ student.user_id }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/admin/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html> 

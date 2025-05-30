@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Exam</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Edit Exam</h2>
+        <form method="post">
+            <label>Student:</label>
+            <select name="user_id" required>
+                <option value="">Select Student</option>
+                {% for student in students %}
+                <option value="{{ student.user_id }}" {% if exam.user_id == student.user_id %}selected{% endif %}>{{ student.name }}</option>
+                {% endfor %}
+            </select><br>
+            <label>Subject:</label>
+            <select name="subject_id" required>
+                <option value="">Select Subject</option>
+                {% for subject in subjects %}
+                <option value="{{ subject.subject_id }}" {% if exam.subject_id == subject.subject_id %}selected{% endif %}>{{ subject.subject_name }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="text" name="exam_link" placeholder="Exam Link" value="{{ exam.exam_link }}" required><br>
+            <button type="submit" class="btn">Update Exam</button>
+        </form>
+        <br>
+        <a href="/admin/exams">Back to Exam List</a>
+    </div>
+</body>
+</html> 

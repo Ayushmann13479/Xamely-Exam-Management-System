@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Exams</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>My Exams</h2>
+        <table border="1" width="100%" style="margin-top:20px;">
+            <tr>
+                <th>Subject Name</th>
+                <th>Exam Link</th>
+            </tr>
+            {% for exam in exams %}
+            <tr>
+                <td>{{ exam.subject_name }}</td>
+                <td><a href="{{ exam.exam_link }}" target="_blank">{{ exam.exam_link }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/student/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html> 
